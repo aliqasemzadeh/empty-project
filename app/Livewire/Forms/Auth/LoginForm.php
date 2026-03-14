@@ -5,7 +5,7 @@ namespace App\Livewire\Forms\Auth;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class Login extends Form
+class LoginForm extends Form
 {
     #[Validate]
     public string $email = '';

@@ -1,11 +1,12 @@
 <?php
 
+use App\Livewire\Forms\Auth\LoginForm;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 new #[Layout('layouts::auth')] class extends Component
 {
-    //
+    public LoginForm $loginForm;
 };
 ?>
 
@@ -43,16 +44,18 @@ new #[Layout('layouts::auth')] class extends Component
         <flux:separator text="or" />
     @endif
     <div class="flex flex-col gap-6">
-        <flux:input label="{{ __('common.email') }}" type="email" placeholder="{{ __('common.your_email') }}" />
-        <flux:field>
-            <div class="mb-3 flex justify-between">
-                <flux:label>{{ __('common.password') }}</flux:label>
-                <flux:link href="#" variant="subtle" class="text-sm">{{ __('common.forget_password') }}</flux:link>
-            </div>
-            <flux:input type="password" placeholder="{{ __('common.your_password') }}" viewable />
-        </flux:field>
-        <flux:checkbox label="{{ __('common.login_remined_me') }}" />
-        <flux:button variant="primary" class="w-full">{{ __('common.login') }}</flux:button>
+        <form wire:submit="login">
+            <flux:input label="{{ __('common.email') }}" type="email" placeholder="{{ __('common.your_email') }}" />
+            <flux:field>
+                <div class="mb-3 flex justify-between">
+                    <flux:label>{{ __('common.password') }}</flux:label>
+                    <flux:link href="#" variant="subtle" class="text-sm">{{ __('common.forget_password') }}</flux:link>
+                </div>
+                <flux:input type="password" placeholder="{{ __('common.your_password') }}" viewable />
+            </flux:field>
+            <flux:checkbox label="{{ __('common.login_remined_me') }}" />
+            <flux:button variant="primary" class="w-full">{{ __('common.login') }}</flux:button>
+        </form>
     </div>
     <flux:subheading class="text-center">
         {{ __('common.register_now') }} <flux:link href="{{ route('register') }}">{{ __('common.register_here') }}</flux:link>
