@@ -19,13 +19,12 @@
     <flux:brand href="#" logo="" name="{{ config('app.name') }}"
                 class="max-lg:hidden! hidden dark:flex"/>
     <flux:navbar class="-mb-px max-lg:hidden">
-        <flux:navbar.item icon="home" href="#" current>Home</flux:navbar.item>
+    </flux:navbar>
+    <flux:spacer/>
+    <flux:navbar class="me-4 max-lg:hidden">
         <flux:navbar.item icon="inbox" badge="12" href="#">Inbox</flux:navbar.item>
         <flux:navbar.item icon="document-text" href="#">Documents</flux:navbar.item>
         <flux:navbar.item icon="calendar" href="#">Calendar</flux:navbar.item>
-    </flux:navbar>
-    <flux:spacer/>
-    <flux:navbar class="me-4">
         <flux:navbar.item x-data x-on:click="$flux.dark = ! $flux.dark" icon="moon" variant="subtle" aria-label="Toggle dark mode" />
     </flux:navbar>
     <flux:dropdown position="top" align="start">
