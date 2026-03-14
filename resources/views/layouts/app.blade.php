@@ -18,8 +18,7 @@
                 class="max-lg:hidden dark:hidden"/>
     <flux:brand href="#" logo="" name="{{ config('app.name') }}"
                 class="max-lg:hidden! hidden dark:flex"/>
-    <flux:navbar class="-mb-px max-lg:hidden">
-    </flux:navbar>
+
     <flux:spacer/>
     <flux:navbar class="-mb-px me-4 max-lg:hidden">
         <flux:navbar.item icon="inbox" badge="12" href="#">Inbox</flux:navbar.item>
