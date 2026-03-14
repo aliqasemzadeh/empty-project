@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Forms\Auth;
 
+use Flux\Flux;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
@@ -37,6 +38,8 @@ class LoginForm extends Form
 
         // Clear sensitive field
         $this->reset('password');
+
+        Flux::toast('common.login_successfully_done');
 
     }
 }
