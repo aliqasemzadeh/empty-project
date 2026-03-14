@@ -38,7 +38,5 @@ class LoginForm extends Form
         // Clear sensitive field
         $this->reset('password');
 
-        // Redirect to intended page or dashboard
-        return $this->redirectIntended(default: route('home'), navigate: true);
     }
 }

@@ -21,4 +21,5 @@ return [
     'login_remined_me' => 'یاد آوری اطلاعات ورود',
     'register_successfully_done' => 'ثبت نام با موفقیت انجام شد.',
     'login_successfully_done' => 'با موفقیت وارد شدید.',
+    'cancel' => 'انصراف',
 ];
