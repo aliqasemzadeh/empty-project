@@ -19,4 +19,6 @@ return [
     'your_name' => 'نام شما',
     'your_email' => 'پست الکترونیکی شما',
     'login_remined_me' => 'یاد آوری اطلاعات ورود',
+    'register_successfully_done' => 'ثبت نام با موفقیت انجام شد.',
+    'login_successfully_done' => 'با موفقیت وارد شدید.',
 ];

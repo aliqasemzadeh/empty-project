@@ -4,7 +4,9 @@ namespace App\Livewire\Forms\Auth;
 
 use App\Models\User;
 use Flux\Flux;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -20,7 +22,7 @@ class RegisterForm extends Form
         return [
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'password'],
+            'password' => ['required', 'min:6'],
         ];
     }
 
@@ -34,8 +36,13 @@ class RegisterForm extends Form
             'password' => Hash::make($this->password),
         ]);
 
-        Flux::toast("Hi");
 
+        if (! Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password], true)) {
+            throw ValidationException::withMessages([
+                'email' => __('auth.failed'),
+            ]);
+        }
 
+        Flux::toast(__('common.register_successfully_done'));
     }
 }
