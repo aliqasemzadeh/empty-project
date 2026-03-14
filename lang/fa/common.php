@@ -8,5 +8,14 @@ return [
     'profile' => 'پروفایل',
     'settings' => 'تنظیمات',
     'register' => 'ثبت نام',
-
+    'email' => 'پست الکترونیکی',
+    'name' => 'نام',
+    'password' => 'رمز عبور',
+    'password_confirmation' => 'تایید رمز عبور',
+    'register_now' => 'ثبت نام نکرده اید؟',
+    'register_here' => 'ثبت نام کنید',
+    'forget_password' => 'فراموشی رمز عبور',
+    'your_password' => 'کلمه عبور شما',
+    'your_name' => 'نام شما',
+    'your_email' => 'پست الکترونیکی شما',
 ];
