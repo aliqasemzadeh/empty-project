@@ -18,4 +18,5 @@ return [
     'your_password' => 'کلمه عبور شما',
     'your_name' => 'نام شما',
     'your_email' => 'پست الکترونیکی شما',
+    'login_remined_me' => 'یاد آوری اطلاعات ورود',
 ];

@@ -43,19 +43,18 @@ new #[Layout('layouts::auth')] class extends Component
         <flux:separator text="or" />
     @endif
     <div class="flex flex-col gap-6">
-        <flux:input label="{{ __('common.name') }}" type="text" />
-        <flux:input label="{{ __('common.email') }}" type="email" placeholder="email@example.com" />
+        <flux:input label="{{ __('common.email') }}" type="email" placeholder="{{ __('common.your_email') }}" />
         <flux:field>
             <div class="mb-3 flex justify-between">
                 <flux:label>{{ __('common.password') }}</flux:label>
-                <flux:link href="#" variant="subtle" class="text-sm">Forgot password?</flux:link>
+                <flux:link href="#" variant="subtle" class="text-sm">{{ __('common.forget_password') }}</flux:link>
             </div>
-            <flux:input type="password" placeholder="Your password" />
+            <flux:input type="password" placeholder="{{ __('common.your_password') }}" viewable />
         </flux:field>
-        <flux:checkbox label="Remember me for 30 days" />
+        <flux:checkbox label="{{ __('common.login_remined_me') }}" />
         <flux:button variant="primary" class="w-full">{{ __('common.login') }}</flux:button>
     </div>
     <flux:subheading class="text-center">
-        {{ __('common.register_now') }} <flux:link href="{{ route('register') }}">{{ __('app.register_here') }}</flux:link>
+        {{ __('common.register_now') }} <flux:link href="{{ route('register') }}">{{ __('common.register_here') }}</flux:link>
     </flux:subheading>
 </div>
