@@ -22,4 +22,9 @@ return [
     'register_successfully_done' => 'ثبت نام با موفقیت انجام شد.',
     'login_successfully_done' => 'با موفقیت وارد شدید.',
     'cancel' => 'انصراف',
+    'are_you_sure' => 'آیا اطمینان دارید؟',
+    'yes_confirm' => 'بله، مطمئن هستم.',
+    'no_reject' => 'خیر، منصرف شدم.',
+    'yes' => 'بله',
+    'no' => 'خیر',
 ];

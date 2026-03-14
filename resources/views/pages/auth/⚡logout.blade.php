@@ -25,7 +25,7 @@ new #[Layout('layouts::auth')] class extends Component
 <div>
 
     <form wire:submit="logout" class="flex flex-col gap-6">
-        <flux:heading class="text-center" size="xl">{{ __('common.logout') }}</flux:heading>
+        <flux:heading class="text-center" size="xl">{{ __('common.are_you_sure') }}</flux:heading>
         <flux:button variant="primary" color="red" class="w-full" type="submit">{{ __('common.logout') }}</flux:button>
         <flux:button variant="ghost" color="green" class="w-full" type="button" wire:click="cancel">{{ __('common.cancel') }}</flux:button>
     </form>
