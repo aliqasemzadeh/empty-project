@@ -17,7 +17,7 @@ new #[Layout('layouts::auth')] class extends Component
 
     public function cancel()
     {
-        return $this->redirect(url()->previous(), navigate: true);
+        return $this->redirectIntended(url()->previous(), navigate: true);
     }
 };
 ?>
