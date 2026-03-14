@@ -61,7 +61,6 @@
 {{ $slot }}
 
 
-@livewireScripts
-@fluxScripts
+@include('partials.layouts.foot')
 </body>
 </html>

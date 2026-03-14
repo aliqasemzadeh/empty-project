@@ -44,7 +44,6 @@
     </div>
 </div>
 
-@livewireScripts
-@fluxScripts
+@include('partials.layouts.foot')
 </body>
 </html>
