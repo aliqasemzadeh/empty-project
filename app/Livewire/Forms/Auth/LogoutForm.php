@@ -15,9 +15,6 @@ class LogoutForm extends Form
         session()->invalidate();
         session()->regenerateToken();
 
-        Flux::toast(
-            text: __('common.logout_success'),
-            variant: 'success',
-        );
+        Flux::toast(__('common.logout_successfully_done'));
     }
 }
