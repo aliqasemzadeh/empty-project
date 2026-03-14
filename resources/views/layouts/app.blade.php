@@ -31,8 +31,8 @@
     <flux:dropdown position="top" align="start">
         <flux:profile />
         <flux:menu>
-            <flux:menu.item icon="arrow-right-start-on-rectangle">Register</flux:menu.item>
-            <flux:menu.item icon="arrow-right-start-on-rectangle">Login</flux:menu.item>
+            <flux:menu.item href="{{ route('register') }}" icon="user-plus">{{ __('common.register') }}</flux:menu.item>
+            <flux:menu.item href="{{ route('login') }}" icon="arrow-left-start-on-rectangle">{{ __('common.login') }}</flux:menu.item>
         </flux:menu>
     </flux:dropdown>
 </flux:header>
