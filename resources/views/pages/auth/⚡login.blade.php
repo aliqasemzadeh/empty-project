@@ -7,6 +7,11 @@ use Livewire\Component;
 new #[Layout('layouts::auth')] class extends Component
 {
     public LoginForm $loginForm;
+
+    public function login()
+    {
+        $this->loginForm->login();
+    }
 };
 ?>
 
@@ -43,8 +48,7 @@ new #[Layout('layouts::auth')] class extends Component
         </div>
         <flux:separator text="or" />
     @endif
-    <div class="flex flex-col gap-6">
-        <form wire:submit="login">
+        <form wire:submit="login" class="flex flex-col gap-6">
             <flux:input label="{{ __('common.email') }}" type="email" placeholder="{{ __('common.your_email') }}" />
             <flux:field>
                 <div class="mb-3 flex justify-between">
@@ -56,7 +60,6 @@ new #[Layout('layouts::auth')] class extends Component
             <flux:checkbox label="{{ __('common.login_remined_me') }}" />
             <flux:button variant="primary" class="w-full">{{ __('common.login') }}</flux:button>
         </form>
-    </div>
     <flux:subheading class="text-center">
         {{ __('common.register_now') }} <flux:link href="{{ route('register') }}">{{ __('common.register_here') }}</flux:link>
     </flux:subheading>
