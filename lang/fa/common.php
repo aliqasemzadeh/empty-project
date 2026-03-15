@@ -30,4 +30,7 @@ return [
     'no_reject' => 'خیر، منصرف شدم.',
     'yes' => 'بله',
     'no' => 'خیر',
+    'setting_panel' => 'پنل تنظیمات',
+    'user_panel' => 'پنل کاربری',
+    'administrator_panel' => 'پنل مدیریت',
 ];
