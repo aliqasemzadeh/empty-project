@@ -25,21 +25,20 @@
         <flux:navbar.item icon="document-text" href="#">Documents</flux:navbar.item>
         <flux:navbar.item icon="calendar" href="#">Calendar</flux:navbar.item>
         <flux:navbar.item x-data x-on:click="$flux.dark = ! $flux.dark" icon="moon" variant="subtle" aria-label="Toggle dark mode" />
+        <flux:navbar.item icon="arrow-left-start-on-rectangle" href="{{ route('register') }}">{{ __('common.login') }}</flux:navbar.item>
+        <flux:navbar.item icon="user-plus" href="{{ route('login') }}">{{ __('common.register') }}</flux:navbar.item>
     </flux:navbar>
-    <flux:dropdown position="top" align="start">
-        <flux:profile />
-        <flux:menu>
-            @guest
-                <flux:menu.item href="{{ route('register') }}" icon="user-plus">{{ __('common.register') }}</flux:menu.item>
-                <flux:menu.item href="{{ route('login') }}" icon="arrow-left-start-on-rectangle">{{ __('common.login') }}</flux:menu.item>
-            @endguest
-
-            @auth
+    @auth
+        <flux:dropdown position="top" align="start">
+            <flux:profile />
+            <flux:menu>
+                @auth
                     <flux:menu.item href="{{ route('logout') }}" icon="arrow-right-start-on-rectangle">{{ __('common.logout') }}</flux:menu.item>
-            @endauth
+                @endauth
+            </flux:menu>
+        </flux:dropdown>
+    @endauth
 
-        </flux:menu>
-    </flux:dropdown>
 </flux:header>
 <flux:sidebar sticky collapsible="mobile"
               class="lg:hidden bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
