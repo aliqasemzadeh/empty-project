@@ -30,4 +30,7 @@ new #[Layout('layouts::auth')] class extends Component
             </flux:field>
             <flux:button variant="primary" class="w-full" type="submit">{{ __('common.register') }}</flux:button>
         </form>
+    <flux:subheading class="text-center">
+        {{ __('common.register_before') }} <flux:link href="{{ route('login') }}">{{ __('common.login_here') }}</flux:link>
+    </flux:subheading>
 </div>

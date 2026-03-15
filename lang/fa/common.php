@@ -14,6 +14,8 @@ return [
     'password_confirmation' => 'تایید رمز عبور',
     'register_now' => 'ثبت نام نکرده اید؟',
     'register_here' => 'ثبت نام کنید',
+    'register_before' => 'قبلا ثبت نام کردید؟',
+    'login_here' => 'وارد شوید',
     'forget_password' => 'فراموشی رمز عبور',
     'your_password' => 'کلمه عبور شما',
     'your_name' => 'نام شما',
