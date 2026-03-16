@@ -55,7 +55,7 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 <x-slot name="title">
     {{ __('app.users') }}
 </x-slot>
-<div>
+<flux:main>
     <div class="relative mb-6 w-full">
         <div class="flex items-center justify-between">
             <div>
@@ -71,10 +71,6 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 
         <flux:separator variant="subtle" />
     </div>
-    <livewire:panels.administrator.user-management.user.create />
-    <livewire:panels.administrator.user-management.user.edit />
-    <livewire:panels.administrator.user-management.user.roles />
-    <livewire:panels.administrator.user-management.user.permissions />
 
     <flux:table :paginate="$this->users">
         <flux:table.columns sticky class="bg-white dark:bg-zinc-900">
@@ -124,4 +120,4 @@ new #[Layout('layouts.panels.administrator')] class extends Component
             @endforeach
         </flux:table.rows>
     </flux:table>
-</div>
+</flux:main>
