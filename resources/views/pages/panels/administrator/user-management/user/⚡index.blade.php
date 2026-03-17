@@ -53,18 +53,18 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 };
 ?>
 <x-slot name="title">
-    {{ __('app.users') }}
+    {{ __('common.users') }}
 </x-slot>
 <flux:main>
     <div class="relative mb-6 w-full">
         <div class="flex items-center justify-between">
             <div>
-                <flux:heading size="xl" level="1">{{ __('app.users') }}</flux:heading>
-                <flux:subheading size="lg" class="mb-6">{{ __('app.users_description') }}</flux:subheading>
+                <flux:heading size="xl" level="1">{{ __('common.users') }}</flux:heading>
+                <flux:subheading size="lg" class="mb-6">{{ __('common.users_description') }}</flux:subheading>
             </div>
             @can('administrator_user_management_create')
                 <flux:modal.trigger name="panels.administrator.user-management.user.create.modal">
-                    <flux:button variant="primary">{{ __('app.create_user') }}</flux:button>
+                    <flux:button variant="primary">{{ __('common.create_user') }}</flux:button>
                 </flux:modal.trigger>
             @endcan
         </div>
@@ -78,17 +78,17 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                 <div class="flex flex-col gap-1 pe-2 items-end">
                     <flux:input
                         size="sm"
-                        placeholder="{{ __('app.search_placeholder') }}"
+                        placeholder="{{ __('common.search_placeholder') }}"
                         wire:model.live="search"
                     />
                 </div>
             </flux:table.column>
         </flux:table.columns>
         <flux:table.columns>
-            <flux:table.column>{{ __('app.id') }}</flux:table.column>
-            <flux:table.column>{{ __('app.mobile') }}</flux:table.column>
-            <flux:table.column>{{ __('app.name') }}</flux:table.column>
-            <flux:table.column sortable sorted direction="desc">{{ __('app.date') }}</flux:table.column>
+            <flux:table.column>{{ __('common.id') }}</flux:table.column>
+            <flux:table.column>{{ __('common.email') }}</flux:table.column>
+            <flux:table.column>{{ __('common.name') }}</flux:table.column>
+            <flux:table.column sortable sorted direction="desc">{{ __('common.date') }}</flux:table.column>
         </flux:table.columns>
         <flux:table.rows>
             @foreach ($this->users as $user)
@@ -97,23 +97,23 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                         {{ $user->id }}
                     </flux:table.cell>
                     <flux:table.cell class="flex items-center gap-3">
-                        {{ $user->mobile }}
+                        {{ $user->email }}
                     </flux:table.cell>
                     <flux:table.cell>
                         {{ $user->name }}
                     </flux:table.cell>
                     <flux:table.cell class="whitespace-nowrap">
                         @can('administrator_user_management_edit')
-                            <flux:button size="xs" variant="primary" wire:click="$dispatch('panels.administrator.user-management.user.edit.assign-data', { id: '{{ $user->id }}' })">{{ __('app.edit') }}</flux:button>
+                            <flux:button size="xs" variant="primary" wire:click="$dispatch('panels.administrator.user-management.user.edit.assign-data', { id: '{{ $user->id }}' })">{{ __('common.edit') }}</flux:button>
                         @endcan
                         @can('administrator_user_management_roles')
-                            <flux:button size="xs" variant="primary" color="orange" wire:click="$dispatch('panels.administrator.user-management.user.roles.assign-data', { id: '{{ $user->id }}' })">{{ __('app.roles') }}</flux:button>
+                            <flux:button size="xs" variant="primary" color="orange" wire:click="$dispatch('panels.administrator.user-management.user.roles.assign-data', { id: '{{ $user->id }}' })">{{ __('common.roles') }}</flux:button>
                         @endcan
                         @can('administrator_user_management_permissions')
-                            <flux:button size="xs" variant="primary" color="lime" wire:click="$dispatch('panels.administrator.user-management.user.permissions.assign-data', { id: '{{ $user->id }}' })">{{ __('app.permissions') }}</flux:button>
+                            <flux:button size="xs" variant="primary" color="lime" wire:click="$dispatch('panels.administrator.user-management.user.permissions.assign-data', { id: '{{ $user->id }}' })">{{ __('common.permissions') }}</flux:button>
                         @endcan
                         @can('administrator_user_management_delete')
-                            <flux:button size="xs" variant="danger">{{ __('app.delete') }}</flux:button>
+                            <flux:button size="xs" variant="danger">{{ __('common.delete') }}</flux:button>
                         @endcan
                     </flux:table.cell>
                 </flux:table.row>

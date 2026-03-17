@@ -30,7 +30,12 @@ return [
     'no_reject' => 'خیر، منصرف شدم.',
     'yes' => 'بله',
     'no' => 'خیر',
+    'date' => 'تاریخ',
+    'id' => 'شماره',
+    'search_placeholder' => 'جستجو',
     'setting_panel' => 'پنل تنظیمات',
     'user_panel' => 'پنل کاربری',
     'administrator_panel' => 'پنل مدیریت',
+    'users' => 'کاربرها',
+    'users_description' => 'لیست کاربرها در این صفحه قابل نمایش است.',
 ];
