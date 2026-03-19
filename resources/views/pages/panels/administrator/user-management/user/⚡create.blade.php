@@ -4,7 +4,10 @@ use Livewire\Component;
 
 new class extends Component
 {
-    //
+    public string $name = '';
+    public string $email = '';
+    public string $password = '';
+    public string $password_confirmation = '';
 };
 ?>
 
