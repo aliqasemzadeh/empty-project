@@ -24,7 +24,7 @@ class UserForm extends Form
             return [
                 'name' => ['required', 'string'],
                 'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')->ignore($this->user)],
-                'password' => ['required', 'string', 'min:8'],
+                'password' => ['nullable', 'string', 'min:8'],
             ];
         }
         return [
@@ -39,7 +39,7 @@ class UserForm extends Form
     {
         $this->user = $user;
 
-        $this->name = $user->title;
+        $this->name = $user->name;
 
         $this->email = $user->email;
     }
@@ -64,8 +64,11 @@ class UserForm extends Form
         $userPack = [
             'name' => $this->name,
             'email' => $this->email,
-            'password' => Hash::make($this->password),
         ];
+
+        if (isset($this->password)) {
+            $userPack['password'] = Hash::make($this->password);
+        }
 
        $this->user->update($userPack);
     }

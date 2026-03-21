@@ -2,10 +2,20 @@
 
 use Livewire\Component;
 use App\Livewire\Forms\Panels\Administrator\UserManagement\User\UserForm;
+use Livewire\Attributes\On;
 
 new class extends Component
 {
     public UserForm $userForm;
+
+
+    #[On('panels.administrator.user-management.user.edit.assign-data')]
+    public function assignData($id)
+    {
+        $user = \App\Models\User::findOrFail($id);
+        $this->userForm->setUser($user);
+        \Flux\Flux::modal('panels.administrator.user-management.user.edit.modal')->show();
+    }
 
     public function update()
     {
@@ -15,14 +25,14 @@ new class extends Component
 };
 ?>
 
-<flux:modal name="panels.administrator.user-management.user.create.modal" class="md:w-96" flyout position="right">
+<flux:modal name="panels.administrator.user-management.user.edit.modal" class="md:w-96" flyout position="right">
     <div class="space-y-6">
         <div>
-            <flux:heading size="lg">{{ __('common.create_user') }}</flux:heading>
-            <flux:text class="mt-2">{{ __('common.create_user_description') }}</flux:text>
+            <flux:heading size="lg">{{ __('common.edit_user') }}: {{ $userForm->name ?? "" }}</flux:heading>
+            <flux:text class="mt-2">{{ __('common.edit_user_description') }}</flux:text>
         </div>
         <!-- Modal body -->
-        <form wire:submit="create" method="post" class="space-y-4">
+        <form wire:submit="update" method="post" class="space-y-4">
             <flux:field>
                 <flux:label>{{ __('common.name') }}</flux:label>
                 <flux:input wire:model="userForm.name" type="text" />
@@ -42,7 +52,7 @@ new class extends Component
             </flux:field>
 
             <flux:button type="submit" class="w-full" variant="primary">
-                {{ __('common.create') }}
+                {{ __('common.update') }}
             </flux:button>
         </form>
     </div>
