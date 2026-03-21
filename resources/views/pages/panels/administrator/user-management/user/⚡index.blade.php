@@ -72,6 +72,9 @@ new #[Layout('layouts.panels.administrator')] class extends Component
         <flux:separator variant="subtle" />
     </div>
 
+    <livewire:panels.administrator.user-management.user.create />
+    <livewire:panels.administrator.user-management.user.edit />
+
     <flux:table :paginate="$this->users">
         <flux:table.columns sticky class="bg-white dark:bg-zinc-900">
             <flux:table.column colspan="4" class="bg-white dark:bg-zinc-900">
