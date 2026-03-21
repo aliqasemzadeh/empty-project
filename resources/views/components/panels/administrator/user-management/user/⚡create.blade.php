@@ -1,7 +1,7 @@
 <?php
 
 use Livewire\Component;
-use App\Livewire\Forms\Panels\Administrator\UserManagement\User\UserForm;
+use App\Livewire\Forms\Panels\Administrator\UserManagement\User\UserFrom;
 
 new class extends Component
 {
