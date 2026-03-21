@@ -1,10 +1,11 @@
 <?php
 
 use Livewire\Component;
+use UserForm;
 
 new class extends Component
 {
-    //
+    public UserForm $userForm;
 };
 ?>
 
