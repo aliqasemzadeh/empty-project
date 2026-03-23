@@ -47,6 +47,6 @@ return [
     'edit_user' => 'ویرایش کاربر',
     'update' => 'بروز رسانی',
     'save' => 'ذخیره',
-    'edit_user_description' => '',
+    'edit_user_description' => 'شما می توانید اطلاعات کاربر را ویرایش کنید.',
     'create_user_description' => 'شما می توانید یک کاربر جدید ایجاد کنید.'
 ];
