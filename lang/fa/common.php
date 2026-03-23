@@ -38,4 +38,15 @@ return [
     'administrator_panel' => 'پنل مدیریت',
     'users' => 'کاربرها',
     'users_description' => 'لیست کاربرها در این صفحه قابل نمایش است.',
+    'create_user' => 'ایجاد کاربر',
+    'edit' => 'ویرایش',
+    'roles' => 'نقش ها',
+    'permissions' => 'دسترسی ها',
+    'delete' => 'حذف',
+    'create' => 'ایجاد',
+    'edit_user' => 'ویرایش کاربر',
+    'update' => 'بروز رسانی',
+    'save' => 'ذخیره',
+    'edit_user_description' => '',
+    'create_user_description' => 'شما می توانید یک کاربر جدید ایجاد کنید.'
 ];
