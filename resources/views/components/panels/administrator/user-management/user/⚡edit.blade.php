@@ -8,7 +8,6 @@ new class extends Component
 {
     public UserForm $userForm;
 
-
     #[On('panels.administrator.user-management.user.edit.assign-data')]
     public function assignData($id)
     {
