@@ -9,5 +9,5 @@ new class extends Component
 ?>
 
 <div>
-    {{-- Well begun is half done. - Aristotle --}}
+    {{-- The only way to do great work is to love what you do. - Steve Jobs --}}
 </div>
