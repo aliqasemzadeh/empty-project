@@ -45,12 +45,12 @@ new class extends Component
     }
 
     #[\Livewire\Attributes\Computed]
-    public function permissions(): void
+    public function permissions()
     {
         if ($this->search != '') {
-            $permissions = Permission::where('name', 'like', '%'.$this->search.'%')->paginate();
+            return Permission::where('name', 'like', '%'.$this->search.'%')->paginate();
         } else {
-            $permissions = Permission::paginate();
+            return Permission::paginate();
         }
     }
 };
@@ -59,7 +59,7 @@ new class extends Component
 <flux:modal name="panels.administrator.user-management.user.permissions.modal" class="min-w-full min-h-full">
     <div class="space-y-6">
         <div>
-            <flux:heading size="lg">{{ __('common.permissions') }}: {{ isset($user) ? $user->mobile : '' }}</flux:heading>
+            <flux:heading size="lg">{{ __('common.permissions') }}: {{ isset($user) ? $user->email : '' }}</flux:heading>
             <flux:text class="mt-2">{{ __('common.permissions_description') }}</flux:text>
         </div>
 
