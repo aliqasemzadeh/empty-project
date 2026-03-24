@@ -57,5 +57,6 @@ return [
     'edit_role' => 'ویرایش نقش',
     'roles_description' => 'می توانید نقش ها را به فردی تخصیص دهید.',
     'permissions_description' => 'می توانید دسترسی ها را تنظیم کنید.',
-    'guard_name' => 'نام محافظ'
+    'guard_name' => 'نام محافظ',
+    'search' => 'جستجو',
 ];
