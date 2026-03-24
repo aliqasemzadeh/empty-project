@@ -1,11 +1,35 @@
 <?php
 
-use Livewire\Component;
 use Livewire\Attributes\Layout;
+use Livewire\Component;
+use Livewire\WithPagination;
+use Spatie\Permission\Models\Role;
 
 new #[Layout('layouts.panels.administrator')] class extends Component
 {
-    //
+    use WithPagination;
+
+    public string $sortBy = 'created_at';
+
+    public string $sortDirection = 'desc';
+
+    public function sort(string $column): void
+    {
+        if ($this->sortBy === $column) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortBy = $column;
+            $this->sortDirection = 'asc';
+        }
+    }
+
+    #[\Livewire\Attributes\Computed]
+    public function roles()
+    {
+        return Role::query()
+            ->tap(fn ($query) => $this->sortBy ? $query->orderBy($this->sortBy, $this->sortDirection) : $query)
+            ->paginate(10);
+    }
 };
 ?>
 
