@@ -51,5 +51,11 @@ return [
     'user_management' => 'مدیریت کاربران',
     'roles' => 'نقش ها',
     'permissions' => 'دسترسی ها',
-    ''
+    'create_permission' => 'ایجاد دسترسی',
+    'create_role' => 'ایجاد نقش',
+    'edit_permission' => 'ویرایش دسترسی',
+    'edit_role' => 'ویرایش نقش',
+    'roles_description' => 'می توانید نقش ها را به فردی تخصیص دهید.',
+    'permissions_description' => 'می توانید دسترسی ها را تنظیم کنید.',
+    'guard_name' => 'نام محافظ'
 ];
