@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ $title ?? config('app.name') }}</title>
+    <title>{{ $title ?? config('common.name') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @fluxAppearance
@@ -14,7 +14,7 @@
     <flux:header container class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-700">
         <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left"/>
 
-        <flux:brand href="#" name="{{ config('app.name') }}">
+        <flux:brand href="#" name="{{ config('common.name') }}">
             <x-slot name="logo" class="bg-accent text-accent-foreground">
                 <i class="font-serif font-bold">PC</i>
             </x-slot>
@@ -48,7 +48,7 @@
         <flux:sidebar.header>
             <flux:sidebar.brand
                 href="#"
-                name="{{ config('app.name') }}"
+                name="{{ config('common.name') }}"
             />
             <flux:sidebar.collapse
                 class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2"/>

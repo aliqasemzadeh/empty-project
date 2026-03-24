@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ $title ?? config('app.name') }}</title>
+    <title>{{ $title ?? config('common.name') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @fluxAppearance
@@ -15,7 +15,7 @@
     <div class="flex-1 flex justify-center items-center">
         <div class="w-80 max-w-80 space-y-6">
             <div class="flex justify-center opacity-50">
-                {{ config('app.name') }}
+                {{ config('common.name') }}
             </div>
             {{ $slot }}
         </div>

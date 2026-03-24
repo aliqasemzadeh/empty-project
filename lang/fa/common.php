@@ -40,8 +40,6 @@ return [
     'users_description' => 'لیست کاربرها در این صفحه قابل نمایش است.',
     'create_user' => 'ایجاد کاربر',
     'edit' => 'ویرایش',
-    'roles' => 'نقش ها',
-    'permissions' => 'دسترسی ها',
     'delete' => 'حذف',
     'create' => 'ایجاد',
     'edit_user' => 'ویرایش کاربر',
