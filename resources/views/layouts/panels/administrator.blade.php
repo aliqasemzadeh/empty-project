@@ -15,8 +15,8 @@
     <flux:sidebar.header>
         <flux:sidebar.brand
             href="#"
-            logo="https://fluxui.dev/img/demo/logo.png"
-            logo:dark="https://fluxui.dev/img/demo/dark-mode-logo.png"
+            logo=""
+            logo:dark=""
             name="Acme Inc."
         />
         <flux:sidebar.collapse class="lg:hidden" />
@@ -39,7 +39,7 @@
         <flux:sidebar.item icon="information-circle" href="#">Help</flux:sidebar.item>
     </flux:sidebar.nav>
     <flux:dropdown position="top" align="start" class="max-lg:hidden">
-        <flux:sidebar.profile avatar="https://fluxui.dev/img/demo/user.png" name="Olivia Martin" />
+        <flux:sidebar.profile avatar="" name="Olivia Martin" />
         <flux:menu>
             <flux:menu.radio.group>
                 <flux:menu.radio checked>Olivia Martin</flux:menu.radio>
@@ -54,7 +54,7 @@
     <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
     <flux:spacer />
     <flux:dropdown position="top" alignt="start">
-        <flux:profile avatar="https://fluxui.dev/img/demo/user.png" />
+        <flux:profile avatar="" />
         <flux:menu>
             <flux:menu.radio.group>
                 <flux:menu.radio checked>Olivia Martin</flux:menu.radio>
