@@ -49,5 +49,9 @@ return [
     'save' => 'ذخیره',
     'edit_user_description' => 'شما می توانید اطلاعات کاربر را ویرایش کنید.',
     'create_user_description' => 'شما می توانید یک کاربر جدید ایجاد کنید.',
-    'actions' => 'اقدام ها'
+    'actions' => 'اقدام ها',
+    'user_management' => 'مدیریت کاربران',
+    'roles' => 'نقش ها',
+    'permissions' => 'دسترسی ها',
+    ''
 ];
