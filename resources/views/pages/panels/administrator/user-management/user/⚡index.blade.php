@@ -114,7 +114,7 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                         </flux:table.cell>
                         <flux:table.cell class="whitespace-nowrap">
                             <flux:dropdown>
-                                <flux:button icon:trailing="chevron-down" size="xs">Options</flux:button>
+                                <flux:button icon:trailing="chevron-down" size="xs">{{ __('common.options') }}</flux:button>
                                 <flux:menu>
                                     @can('administrator_user_management_edit')
                                         <flux:menu.item icon="pencil-square" size="xs" wire:click="$dispatch('panels.administrator.user-management.user.edit.assign-data', { id: '{{ $user->id }}' })">{{ __('common.edit') }}</flux:menu.item>
