@@ -61,4 +61,5 @@ return [
     'search' => 'جستجو',
     'create_permission_description' => 'شما می توانید یک دسترسی جدید ایجاد کنید.',
     'edit_permission_description' => 'شما می توانید دسترسی را ویرایش کنید.',
+    'options' => 'گزینه ها',
 ];
