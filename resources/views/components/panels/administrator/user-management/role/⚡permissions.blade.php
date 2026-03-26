@@ -44,7 +44,7 @@ new class extends Component
     }
 
     #[\Livewire\Attributes\Computed]
-    public function render()
+    public function permissions()
     {
         $this->authorize('administrator_user_management_role_permissions');
         if ($this->search != '') {
