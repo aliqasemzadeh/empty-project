@@ -14,13 +14,6 @@ new class extends Component
 
     public string $guard_name = 'web';
 
-    public function mount($id = 1)
-    {
-        $this->permission = Permission::findById($id);
-        $this->name = $this->permission->name;
-        $this->guard_name = $this->permission->guard_name;
-    }
-
     #[On('panels.administrator.user-management.permission.edit.assign-data')]
     public function assignData(int $id): void
     {

@@ -15,11 +15,6 @@ new class extends Component
 
     public $search;
 
-    public function mount($id = 1)
-    {
-        $this->role = Role::findById($id);
-    }
-
     #[On('panels.administrator.user-management.role.permissions.assign-data')]
     public function assignData(int $id): void
     {
@@ -61,17 +56,15 @@ new class extends Component
 <flux:modal name="panels.administrator.user-management.role.permissions.modal" class="min-w-full min-h-full">
     <div class="space-y-6">
         <div>
-            <flux:heading size="lg">{{ __('common.permissions') }}: {{ $role->name }}</flux:heading>
+            <flux:heading size="lg">{{ __('common.permissions') }}: {{ $role->name ?? "" }}</flux:heading>
             <flux:text class="mt-2">{{ __('common.role_permissions_description') }}</flux:text>
         </div>
         <div class="grid grid-cols-2 gap-4">
             <div>
                 <flux:field>
-                    <flux:field>
                         <flux:label>{{ __('common.search') }}</flux:label>
-                        <flux:input wire:model.live="search" type="text" />
+                        <flux:input wire:model.live="search" type="text" size="sm" />
                         <flux:error name="search" />
-                    </flux:field>
                 </flux:field>
 
                 <ul class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -88,7 +81,7 @@ new class extends Component
                                 </div>
                                 <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                                     @can('administrator_user_management_role_permissions')
-                                        <flux:button size="xs" wire:click="assign({{ $permission->id }})" wire:confirm="{{ __('common.are_you_sure') }}"><flux:icon.plus-circle /></flux:button>
+                                        <flux:button size="xs" wire:click="assign({{ $permission->id }})" wire:confirm="{{ __('common.are_you_sure') }}" icon="plus-circle" />
                                     @endcan
                                 </div>
                             </div>
@@ -101,7 +94,7 @@ new class extends Component
 
             <div>
                 <ul class="divide-y divide-gray-200 dark:divide-gray-700">
-                    @foreach($role->permissions as $permission)
+                    @foreach($role?->permissions as $permission)
                         <li class="pb-3 sm:pb-4">
                             <div class="flex items-center space-x-4 rtl:space-x-reverse">
                                 <div class="flex-1 min-w-0">
@@ -114,7 +107,7 @@ new class extends Component
                                 </div>
                                 <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                                     @can('administrator_user_management_role_permissions')
-                                        <flux:button size="xs" wire:click="delete({{ $permission->id }})" wire:confirm="{{ __('common.are_you_sure') }}"><flux:icon.trash /></flux:button>
+                                        <flux:button size="xs" wire:click="delete({{ $permission->id }})" wire:confirm="{{ __('common.are_you_sure') }}" icon="trash" />
                                     @endcan
                                 </div>
                             </div>

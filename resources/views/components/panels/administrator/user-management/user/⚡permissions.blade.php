@@ -67,11 +67,9 @@ new class extends Component
         <div class="grid grid-cols-2 gap-4">
             <div>
                 <flux:field>
-                    <flux:field>
                         <flux:label>{{ __('common.search') }}</flux:label>
-                        <flux:input wire:model.live="search" type="text" />
+                        <flux:input wire:model.live="search" type="text" size="sm" />
                         <flux:error name="search" />
-                    </flux:field>
                 </flux:field>
 
                 <ul class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -88,7 +86,7 @@ new class extends Component
                                 </div>
                                 <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                                     @can('administrator_user_management_permissions')
-                                        <flux:button size="xs" wire:click="assign({{ $permission->id }})" wire:confirm="{{ __('common.are_you_sure') }}"><flux:icon.plus-circle /></flux:button>
+                                        <flux:button size="xs" wire:click="assign({{ $permission->id }})" icon="plus-circle" wire:confirm="{{ __('common.are_you_sure') }}" />
                                     @endcan
                                 </div>
                             </div>
@@ -114,7 +112,7 @@ new class extends Component
                                 </div>
                                 <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                                     @can('administrator_user_management_permissions')
-                                        <flux:button size="xs" wire:click="delete({{ $permission->id }})" wire:confirm="{{ __('common.are_you_sure') }}"><flux:icon.trash /></flux:button>
+                                        <flux:button size="xs" wire:click="delete({{ $permission->id }})" icon="trash" wire:confirm="{{ __('common.are_you_sure') }}" />
                                     @endcan
                                 </div>
                             </div>
