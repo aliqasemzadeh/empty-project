@@ -59,4 +59,5 @@ return [
     'permissions_description' => 'می توانید دسترسی ها را تنظیم کنید.',
     'guard_name' => 'نام محافظ',
     'search' => 'جستجو',
+    'create_permission_description' => 'شما می توانید یک دسترسی جدید ایجاد کنید.',
 ];
