@@ -1,22 +1,25 @@
 <?php
 
 use Livewire\Component;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use App\Models\User;
 
 new class extends Component
 {
-    public \Spatie\Permission\Models\Role $role;
+    public Role $role;
 
     #[\Livewire\Attributes\On('panels.administrator.user-management.role.users.assign-data')]
     public function assignData($id)
     {
-        $this->role = \App\Models\\Spatie\Permission\Models\Role::findOrFail($id);
+        $this->role = Role::findOrFail($id);
         \Flux\Flux::modal('panels.administrator.user-management.role.users.modal')->show();
     }
 
     public function revoke($id, $name)
     {
         $this->authorize('administrator_user_management_role_users');
-        $selected_user = \App\Models\User::findOrFail($id);
+        $selected_user = User::findOrFail($id);
         $selected_user->removeRole($name);
     }
 };
@@ -25,7 +28,7 @@ new class extends Component
 <flux:modal name="panels.administrator.user-management.role.users.modal"  class="min-w-full min-h-full">
     <div class="space-y-6">
         <div>
-            <flux:heading size="lg">{{ __('common.users') }}: {{ $role->name }}</flux:heading>
+            <flux:heading size="lg">{{ __('common.users') }}: {{ $role->name ?? "" }}</flux:heading>
             <flux:text class="mt-2">{{ __('common.role_users_description') }}</flux:text>
         </div>
         <div>
@@ -43,7 +46,7 @@ new class extends Component
                             </div>
                             <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                                 @can('administrator_user_management_role_users')
-                                    <flux:button  wire:confirm="{{ __('common.are_you_sure') }}" wire:click="revoke('{{ $user->id  }}', '{{ $role->name }}')" icon="trash />
+                                    <flux:button  wire:confirm="{{ __('common.are_you_sure') }}" wire:click="revoke('{{ $user->id  }}', '{{ $role->name }}')" icon="trash" />
                                 @endcan
                             </div>
                         </div>
