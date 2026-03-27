@@ -12,7 +12,7 @@ new class extends Component
     #[\Livewire\Attributes\On('panels.administrator.user-management.role.users.assign-data')]
     public function assignData($id)
     {
-        $this->role = Role::findOrFail($id);
+        $this->role = Role::with(['users'])->findOrFail($id);
         \Flux\Flux::modal('panels.administrator.user-management.role.users.modal')->show();
     }
 
@@ -33,7 +33,7 @@ new class extends Component
         </div>
         <div>
             <ul class="divide-y divide-gray-200 dark:divide-gray-700">
-                @foreach($role->users as $user)
+                @foreach($role->users ?? [] as $user)
                     <li class="pb-3 sm:pb-4">
                         <div class="flex items-center space-x-4 rtl:space-x-reverse">
                             <div class="flex-1 min-w-0">
@@ -46,7 +46,7 @@ new class extends Component
                             </div>
                             <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                                 @can('administrator_user_management_role_users')
-                                    <flux:button  wire:confirm="{{ __('common.are_you_sure') }}" wire:click="revoke('{{ $user->id  }}', '{{ $role->name }}')" icon="trash" />
+                                    <flux:button size="xs" wire:confirm="{{ __('common.are_you_sure') }}" wire:click="revoke('{{ $user->id  }}', '{{ $role->name }}')" icon="trash" />
                                 @endcan
                             </div>
                         </div>
