@@ -43,7 +43,7 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                 });
             })
             ->tap(fn ($query) => $this->sortBy ? $query->orderBy($this->sortBy, $this->sortDirection) : $query)
-            ->paginate(20);
+            ->paginate(config('common.per_page'));
     }
 
     public function updatingSearch(): void
@@ -88,8 +88,9 @@ new #[Layout('layouts.panels.administrator')] class extends Component
         <flux:table :paginate="$this->users">
             <flux:table.columns sticky class="bg-white dark:bg-zinc-900">
                 <flux:table.column colspan="5" class="bg-white dark:bg-zinc-900">
-                    <div class="flex flex-col gap-1 pe-2 items-end">
+                    <div class="flex flex-col gap-1 ps-2 items-start">
                         <flux:input
+                            icon="magnifying-glass"
                             size="sm"
                             placeholder="{{ __('common.search_placeholder') }}"
                             wire:model.live="search"
