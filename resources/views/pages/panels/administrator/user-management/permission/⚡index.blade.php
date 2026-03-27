@@ -75,32 +75,32 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 
     <livewire:panels.administrator.user-management.permission.create />
     <livewire:panels.administrator.user-management.permission.edit />
+    <flux:card>
+        <flux:table :paginate="$this->permissions">
+            <flux:table.columns sticky class="bg-white dark:bg-zinc-900">
+                <flux:table.column colspan="4" class="bg-white dark:bg-zinc-900">
+                    <div class="flex flex-col gap-1 pe-2 items-end">
+                        <flux:input
+                            size="sm"
+                            placeholder="{{ __('common.search_placeholder') }}"
+                            wire:model.live="search"
+                        />
+                    </div>
+                </flux:table.column>
+            </flux:table.columns>
+            <flux:table.columns>
+                <flux:table.column sortable :sorted="$sortBy === 'name'" :direction="$sortDirection" wire:click="sort('name')">{{ __('common.name') }}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'guard_name'" :direction="$sortDirection" wire:click="sort('guard_name')">{{ __('common.guard_name') }}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'created_at'" :direction="$sortDirection" wire:click="sort('created_at')">{{ __('common.date') }}</flux:table.column>
+                <flux:table.column />
+            </flux:table.columns>
 
-    <flux:table :paginate="$this->permissions">
-        <flux:table.columns sticky class="bg-white dark:bg-zinc-900">
-            <flux:table.column colspan="4" class="bg-white dark:bg-zinc-900">
-                <div class="flex flex-col gap-1 pe-2 items-end">
-                    <flux:input
-                        size="sm"
-                        placeholder="{{ __('common.search_placeholder') }}"
-                        wire:model.live="search"
-                    />
-                </div>
-            </flux:table.column>
-        </flux:table.columns>
-        <flux:table.columns>
-            <flux:table.column sortable :sorted="$sortBy === 'name'" :direction="$sortDirection" wire:click="sort('name')">{{ __('common.name') }}</flux:table.column>
-            <flux:table.column sortable :sorted="$sortBy === 'guard_name'" :direction="$sortDirection" wire:click="sort('guard_name')">{{ __('common.guard_name') }}</flux:table.column>
-            <flux:table.column sortable :sorted="$sortBy === 'created_at'" :direction="$sortDirection" wire:click="sort('created_at')">{{ __('common.date') }}</flux:table.column>
-            <flux:table.column />
-        </flux:table.columns>
-
-        @foreach ($this->permissions as $permission)
-            <flux:table.row :key="$permission->id">
-                <flux:table.cell class="whitespace-nowrap">{{ $permission->name }}</flux:table.cell>
-                <flux:table.cell class="whitespace-nowrap">{{ $permission->guard_name }}</flux:table.cell>
-                <flux:table.cell class="whitespace-nowrap">{{ $permission->created_at?->format('Y-m-d H:i') }}</flux:table.cell>
-                <flux:table.cell class="whitespace-nowrap">
+            @foreach ($this->permissions as $permission)
+                <flux:table.row :key="$permission->id">
+                    <flux:table.cell class="whitespace-nowrap">{{ $permission->name }}</flux:table.cell>
+                    <flux:table.cell class="whitespace-nowrap">{{ $permission->guard_name }}</flux:table.cell>
+                    <flux:table.cell class="whitespace-nowrap">{{ $permission->created_at?->format('Y-m-d H:i') }}</flux:table.cell>
+                    <flux:table.cell class="whitespace-nowrap">
                         <flux:dropdown>
                             <flux:button icon:trailing="chevron-down" size="xs">{{ __('common.options') }}</flux:button>
                             <flux:menu>
@@ -112,8 +112,9 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                                 @endcan
                             </flux:menu>
                         </flux:dropdown>
-                </flux:table.cell>
-            </flux:table.row>
-        @endforeach
-    </flux:table>
+                    </flux:table.cell>
+                </flux:table.row>
+            @endforeach
+        </flux:table>
+    </flux:card>
 </flux:main>
