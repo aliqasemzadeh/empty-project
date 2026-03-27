@@ -101,12 +101,17 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                 <flux:table.cell class="whitespace-nowrap">{{ $permission->guard_name }}</flux:table.cell>
                 <flux:table.cell class="whitespace-nowrap">{{ $permission->created_at?->format('Y-m-d H:i') }}</flux:table.cell>
                 <flux:table.cell class="whitespace-nowrap">
-                    @can('administrator_user_management_permission_edit')
-                        <flux:button size="xs" variant="primary" wire:click="$dispatch('panels.administrator.user-management.permission.edit.assign-data', { id: '{{ $permission->id }}' })">{{ __('common.edit') }}</flux:button>
-                    @endcan
-                    @can('administrator_user_management_permission_delete')
-                        <flux:button size="xs" variant="danger">{{ __('common.delete') }}</flux:button>
-                    @endcan
+                        <flux:dropdown>
+                            <flux:button icon:trailing="chevron-down" size="xs">{{ __('common.options') }}</flux:button>
+                            <flux:menu>
+                                @can('administrator_user_management_permission_edit')
+                                    <flux:menu.item icon="pencil-square" size="xs" wire:click="$dispatch('panels.administrator.user-management.permission.edit.assign-data', { id: '{{ $permission->id }}' })">{{ __('common.edit') }}</flux:menu.item>
+                                @endcan
+                                @can('administrator_user_management_permission_delete')
+                                    <flux:menu.item icon="trash" variant="danger" wire:click="delete({{ $permission->id }})" wire:confirm="{{ __('common.are_you_sure') }}">{{ __('common.delete') }}</flux:menu.item>
+                                @endcan
+                            </flux:menu>
+                        </flux:dropdown>
                 </flux:table.cell>
             </flux:table.row>
         @endforeach

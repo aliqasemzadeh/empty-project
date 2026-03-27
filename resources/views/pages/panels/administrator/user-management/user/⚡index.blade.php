@@ -50,6 +50,13 @@ new #[Layout('layouts.panels.administrator')] class extends Component
     {
         $this->resetPage();
     }
+
+    public function delete(int $id)
+    {
+        $user = \App\Models\User::findOrFail($id);
+        $user->delete();
+        \Flux\Flux::toast(__('common.user_deleted'));
+    }
 };
 ?>
 <x-slot name="title">
@@ -126,7 +133,7 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                                         <flux:menu.item icon="scan-eye" size="xs" wire:click="$dispatch('panels.administrator.user-management.user.permissions.assign-data', { id: '{{ $user->id }}' })">{{ __('common.permissions') }}</flux:menu.item>
                                     @endcan
                                     @can('administrator_user_management_delete')
-                                    <flux:menu.item icon="trash" variant="danger" wire:click="delete({{ $user->id }})">{{ __('common.delete') }}</flux:menu.item>
+                                    <flux:menu.item icon="trash" variant="danger" wire:click="delete({{ $user->id }})" wire:confirm="{{ __('common.are_you_sure') }}">{{ __('common.delete') }}</flux:menu.item>
                                         @endcan
                                 </flux:menu>
                             </flux:dropdown>
