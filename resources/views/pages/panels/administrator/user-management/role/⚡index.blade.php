@@ -74,18 +74,25 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                 <flux:table.cell class="whitespace-nowrap">{{ $role->guard_name }}</flux:table.cell>
                 <flux:table.cell class="whitespace-nowrap">{{ $role->created_at?->format('Y-m-d H:i') }}</flux:table.cell>
                 <flux:table.cell class="whitespace-nowrap">
-                    @can('administrator_user_management_role_edit')
-                        <flux:button size="xs" variant="primary" wire:click="$dispatch('panels.administrator.user-management.role.edit.assign-data', { id: '{{ $role->id }}' })">{{ __('common.edit') }}</flux:button>
-                    @endcan
-                    @can('administrator_user_management_role_users')
-                        <flux:button size="xs" variant="primary" wire:click="$dispatch('panels.administrator.user-management.role.users.assign-data', { id: '{{ $role->id }}' })">{{ __('common.users') }}</flux:button>
-                    @endcan
-                    @can('administrator_user_management_role_permissions')
-                        <flux:button size="xs" variant="primary" wire:click="$dispatch('panels.administrator.user-management.role.permissions.assign-data', { id: '{{ $role->id }}' })">{{ __('common.permissions') }}</flux:button>
-                    @endcan
-                    @can('administrator_user_management_role_delete')
-                        <flux:button size="xs" variant="danger">{{ __('common.delete') }}</flux:button>
-                    @endcan
+
+
+                        <flux:dropdown>
+                            <flux:button icon:trailing="chevron-down" size="xs">{{ __('common.options') }}</flux:button>
+                            <flux:menu>
+                                @can('administrator_user_management_edit')
+                                    <flux:menu.item icon="pencil-square" size="xs" wire:click="$dispatch('panels.administrator.user-management.role.edit.assign-data', { id: '{{ $role->id }}' })">{{ __('common.edit') }}</flux:menu.item>
+                                @endcan
+                                @can('administrator_user_management_roles')
+                                    <flux:menu.item icon="users" size="xs" wire:click="$dispatch('panels.administrator.user-management.role.users.assign-data', { id: '{{ $role->id }}' })">{{ __('common.users') }}</flux:menu.item>
+                                @endcan
+                                @can('administrator_user_management_permissions')
+                                    <flux:menu.item icon="scan-eye" size="xs" wire:click="$dispatch('panels.administrator.user-management.role.permissions.assign-data', { id: '{{ $role->id }}' })">{{ __('common.permissions') }}</flux:menu.item>
+                                @endcan
+                                @can('administrator_user_management_delete')
+                                    <flux:menu.item icon="trash" variant="danger" wire:click="delete({{ $role->id }})">{{ __('common.delete') }}</flux:menu.item>
+                                @endcan
+                            </flux:menu>
+                        </flux:dropdown>
                 </flux:table.cell>
             </flux:table.row>
         @endforeach

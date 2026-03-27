@@ -63,4 +63,6 @@ return [
     'edit_permission_description' => 'شما می توانید دسترسی را ویرایش کنید.',
     'options' => 'گزینه ها',
     'role_users_description' => 'در این قسمت شما کاربرهایی که به این نقش دسترسی دارند را می بینید.',
+    'create_role_description' => 'شما می توانید یک نقش کاربری ایجاد کنید.',
+    'edit_role_description' => 'شما می توانید نقش انتخابی را ویرایش کنید.',
 ];

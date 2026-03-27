@@ -43,7 +43,7 @@ new class extends Component
 <flux:modal name="panels.administrator.user-management.permission.edit.modal" flyout position="right" class="md:w-96">
     <div class="space-y-6">
         <div>
-            <flux:heading size="lg">{{ __('common.edit_permission') }} : {{ $permission->name }}</flux:heading>
+            <flux:heading size="lg">{{ __('common.edit_permission') }} : {{ $permission->name ?? "" }}</flux:heading>
             <flux:text class="mt-2">{{ __('common.edit_permission_description') }}</flux:text>
         </div>
         <form wire:submit="edit" method="post">
