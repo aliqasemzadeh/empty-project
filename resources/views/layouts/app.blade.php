@@ -61,6 +61,7 @@
         <flux:sidebar.spacer/>
         @include('partials.layouts.panels')
         @include('partials.layouts.user')
+        @include('partials.layouts.theme')
     </flux:sidebar>
     {{ $slot }}
     @include('partials.layouts.foot')

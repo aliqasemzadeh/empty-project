@@ -32,6 +32,7 @@
     <flux:sidebar.spacer />
     @include('partials.layouts.panels')
     @include('partials.layouts.user')
+    @include('partials.layouts.theme')
 </flux:sidebar>
 <flux:header class="lg:hidden">
     <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
