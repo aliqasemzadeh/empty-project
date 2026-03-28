@@ -39,22 +39,14 @@
 
                 @auth
                     @include('partials.layouts.radio-menu')
-                    <flux:menu.item href="{{ route('logout') }}" icon="arrow-right-start-on-rectangle">{{ __('common.logout') }}</flux:menu.item>
                 @endauth
             </flux:menu>
         </flux:dropdown>
     </flux:header>
     <flux:sidebar sticky collapsible="mobile"
                   class="lg:hidden bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
-        <flux:sidebar.header>
-            <flux:sidebar.brand href="{{ route('home') }}" name="{{ config('common.name') }}">
-                <x-slot name="logo" class="bg-accent text-accent-foreground">
-                    <i class="font-serif font-bold">{{ config('common.short_name') }}</i>
-                </x-slot>
-            </flux:sidebar.brand>
-            <flux:sidebar.collapse
-                class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2"/>
-        </flux:sidebar.header>
+        @include('partials.layouts.header')
+        @include('partials.layouts.search')
         <flux:sidebar.nav>
             <flux:sidebar.item icon="home" href="#" current>صفحه اول</flux:sidebar.item>
         </flux:sidebar.nav>

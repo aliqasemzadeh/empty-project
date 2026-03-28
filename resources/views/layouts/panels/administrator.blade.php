@@ -12,15 +12,8 @@
 
 <body class="min-h-screen bg-white dark:bg-zinc-800 antialiased">
 <flux:sidebar sticky collapsible="mobile" class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
-    <flux:sidebar.header>
-        <flux:sidebar.brand href="{{ route('home') }}" name="{{ config('common.name') }}">
-            <x-slot name="logo" class="bg-accent text-accent-foreground">
-                <i class="font-serif font-bold">{{ config('common.short_name') }}</i>
-            </x-slot>
-        </flux:sidebar.brand>
-        <flux:sidebar.collapse class="lg:hidden" />
-    </flux:sidebar.header>
-    <flux:sidebar.search placeholder="Search..." />
+    @include('partials.layouts.header')
+    @include('partials.layouts.search')
     <flux:sidebar.nav>
         <flux:sidebar.item icon="home" href="{{ route('panels.administrator.dashboard.index') }}" wire:navigate>{{ __('common.dashboard') }}</flux:sidebar.item>
         <flux:sidebar.group expandable heading="{{ __('common.user_management') }}" class="grid" :expanded="request()->routeIs('panels.administrator.user-management.*')">
@@ -40,7 +33,6 @@
     <flux:dropdown position="top" alignt="start">
         <flux:profile avatar="" />
         <flux:menu>
-            @include('partials.layouts.radio-menu')
         </flux:menu>
     </flux:dropdown>
 </flux:header>
