@@ -14,10 +14,10 @@
 <flux:sidebar sticky collapsible="mobile" class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
     <flux:sidebar.header>
         <flux:sidebar.brand
-            href="#"
+            href="{{ route('home') }}"
             logo=""
             logo:dark=""
-            name="Acme Inc."
+            name="{{ config('app.name') }}"
         />
         <flux:sidebar.collapse class="lg:hidden" />
     </flux:sidebar.header>
