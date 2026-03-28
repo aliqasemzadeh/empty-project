@@ -3,7 +3,6 @@
     <flux:sidebar.profile avatar="" name="{{ auth()->user()->name }}" />
     <flux:menu>
         @include('partials.layouts.radio-menu')
-        <flux:menu.item href="{{ route('logout') }}" icon="arrow-right-start-on-rectangle">{{ __('common.logout') }}</flux:menu.item>
     </flux:menu>
 </flux:dropdown>
 @endauth
