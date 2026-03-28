@@ -1,13 +1,19 @@
 <?php
 
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 
-new class extends Component
+new #[Layout('layouts.panels.user')] class extends Component
 {
     //
 };
 ?>
 
-<div>
-    {{-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Maria Skłodowska-Curie --}}
-</div>
+<x-slot name="title">
+    {{ __('common.dashboard') }}
+</x-slot>
+
+
+<flux:main>
+    {{-- Do what you can, with what you have, where you are. - Theodore Roosevelt --}}
+</flux:main>

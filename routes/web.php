@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth']], function () {
 
     //Public Routes
-    Route::livewire('/', 'pages::home.index')->name('home');
+    Route::livewire('/', 'pages::panels.user.dashboard.index')->name('home');
+    Route::livewire('/panels/user/dashboard/index', 'pages::panels.user.dashboard.index')->name('panels.user.dashboard.index');
 
     Route::livewire('/settings/profile-information', 'pages::settings.profile-information')->name('settings.profile-information');
     Route::livewire('/settings/change-email', 'pages::settings.change-email')->name('settings.change-email');
