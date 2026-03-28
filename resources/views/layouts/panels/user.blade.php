@@ -15,7 +15,7 @@
     @include('partials.layouts.header')
     @include('partials.layouts.search')
     <flux:sidebar.nav>
-        <flux:sidebar.item icon="home" href="{{ route('panels.user.dashboard.index') }}" wire:navigate>{{ __('common.dashboard') }}</flux:sidebar.item>
+        <flux:sidebar.item icon="layout-dashboard" href="{{ route('panels.user.dashboard.index') }}" wire:navigate>{{ __('common.dashboard') }}</flux:sidebar.item>
     </flux:sidebar.nav>
     <flux:sidebar.spacer />
     @include('partials.layouts.panels')

@@ -15,7 +15,7 @@
     @include('partials.layouts.header')
     @include('partials.layouts.search')
     <flux:sidebar.nav>
-        <flux:sidebar.item icon="home" href="{{ route('panels.administrator.dashboard.index') }}" wire:navigate>{{ __('common.dashboard') }}</flux:sidebar.item>
+        <flux:sidebar.item icon="layout-dashboard" href="{{ route('panels.administrator.dashboard.index') }}" wire:navigate>{{ __('common.dashboard') }}</flux:sidebar.item>
         <flux:sidebar.group expandable heading="{{ __('common.user_management') }}" class="grid" :expanded="request()->routeIs('panels.administrator.user-management.*')">
             <flux:sidebar.item href="{{ route('panels.administrator.user-management.user.index') }}" wire:navigate>{{ __('common.users') }}</flux:sidebar.item>
             <flux:sidebar.item href="{{ route('panels.administrator.user-management.permission.index') }}" wire:navigate>{{ __('common.permissions') }}</flux:sidebar.item>
