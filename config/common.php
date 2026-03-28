@@ -1,4 +1,6 @@
 <?php
 return [
-    'per_page' => '10'
+    'name' => 'PCShiraz',
+    'short_name' => 'PC',
+    'per_page' => 10
 ];

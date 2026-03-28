@@ -16,7 +16,7 @@
 
         <flux:brand href="#" name="{{ config('common.name') }}">
             <x-slot name="logo" class="bg-accent text-accent-foreground">
-                <i class="font-serif font-bold">PC</i>
+                <i class="font-serif font-bold">{{ config('common.short_name') }}</i>
             </x-slot>
         </flux:brand>
 

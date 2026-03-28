@@ -13,12 +13,11 @@
 <body class="min-h-screen bg-white dark:bg-zinc-800 antialiased">
 <flux:sidebar sticky collapsible="mobile" class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
     <flux:sidebar.header>
-        <flux:sidebar.brand
-            href="{{ route('home') }}"
-            logo=""
-            logo:dark=""
-            name="{{ config('app.name') }}"
-        />
+        <flux:sidebar.brand href="#" name="{{ config('common.name') }}">
+            <x-slot name="logo" class="bg-accent text-accent-foreground">
+                <i class="font-serif font-bold">{{ config('common.short_name') }}</i>
+            </x-slot>
+        </flux:sidebar.brand>
         <flux:sidebar.collapse class="lg:hidden" />
     </flux:sidebar.header>
     <flux:sidebar.search placeholder="Search..." />

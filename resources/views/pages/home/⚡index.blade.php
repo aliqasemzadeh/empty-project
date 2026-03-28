@@ -8,8 +8,11 @@ new class extends Component
 };
 ?>
 
+<x-slot name="title">
+    {{ config('app.name') }}
+</x-slot>
 
-<flux:main>
+<flux:main container>
     <flux:heading size="xl" level="1">Good afternoon, Olivia</flux:heading>
     <flux:text class="mt-2 mb-6 text-base">Here's what's new today</flux:text>
     <flux:separator variant="subtle" />
