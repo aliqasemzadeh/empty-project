@@ -13,7 +13,7 @@
 <body class="min-h-screen bg-white dark:bg-zinc-800 antialiased">
 <flux:sidebar sticky collapsible="mobile" class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
     <flux:sidebar.header>
-        <flux:sidebar.brand href="#" name="{{ config('common.name') }}">
+        <flux:sidebar.brand href="{{ route('home') }}" name="{{ config('common.name') }}">
             <x-slot name="logo" class="bg-accent text-accent-foreground">
                 <i class="font-serif font-bold">{{ config('common.short_name') }}</i>
             </x-slot>
@@ -30,21 +30,8 @@
         </flux:sidebar.group>
     </flux:sidebar.nav>
     <flux:sidebar.spacer />
-    <flux:sidebar.nav>
-        <flux:sidebar.item icon="cog-6-tooth" href="#">Settings</flux:sidebar.item>
-        <flux:sidebar.item icon="information-circle" href="#">Help</flux:sidebar.item>
-    </flux:sidebar.nav>
-    <flux:dropdown position="top" align="start" class="max-lg:hidden">
-        <flux:sidebar.profile avatar="" name="Olivia Martin" />
-        <flux:menu>
-            <flux:menu.radio.group>
-                <flux:menu.radio checked>Olivia Martin</flux:menu.radio>
-                <flux:menu.radio>Truly Delta</flux:menu.radio>
-            </flux:menu.radio.group>
-            <flux:menu.separator />
-            <flux:menu.item icon="arrow-right-start-on-rectangle">Logout</flux:menu.item>
-        </flux:menu>
-    </flux:dropdown>
+    @include('partials.layouts.panels')
+    @include('partials.layouts.user')
 </flux:sidebar>
 <flux:header class="lg:hidden">
     <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />

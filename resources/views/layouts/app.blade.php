@@ -29,7 +29,7 @@
         </flux:navbar>
         <flux:spacer/>
         <flux:button x-data x-on:click="$flux.dark = ! $flux.dark" icon="moon" variant="subtle" aria-label="Toggle dark mode" />
-        <flux:dropdown position="top" align="start">
+        <flux:dropdown position="top" align="start" class="max-lg:hidden">
             <flux:profile />
             <flux:menu>
                 @guest
@@ -46,18 +46,20 @@
     <flux:sidebar sticky collapsible="mobile"
                   class="lg:hidden bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
         <flux:sidebar.header>
-            <flux:sidebar.brand
-                href="#"
-                name="{{ config('common.name') }}"
-            />
+            <flux:sidebar.brand href="{{ route('home') }}" name="{{ config('common.name') }}">
+                <x-slot name="logo" class="bg-accent text-accent-foreground">
+                    <i class="font-serif font-bold">{{ config('common.short_name') }}</i>
+                </x-slot>
+            </flux:sidebar.brand>
             <flux:sidebar.collapse
                 class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2"/>
         </flux:sidebar.header>
         <flux:sidebar.nav>
-            <flux:sidebar.item icon="home" href="#" current>Home</flux:sidebar.item>
+            <flux:sidebar.item icon="home" href="#" current>صفحه اول</flux:sidebar.item>
         </flux:sidebar.nav>
         <flux:sidebar.spacer/>
-        @include('partials.panels')
+        @include('partials.layouts.panels')
+        @include('partials.layouts.user')
     </flux:sidebar>
     {{ $slot }}
     @include('partials.layouts.foot')
