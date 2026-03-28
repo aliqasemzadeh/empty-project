@@ -38,7 +38,8 @@
                 @endguest
 
                 @auth
-                        <flux:menu.item href="{{ route('logout') }}" icon="arrow-right-start-on-rectangle">{{ __('common.logout') }}</flux:menu.item>
+                    @include('partials.layouts.radio-menu')
+                    <flux:menu.item href="{{ route('logout') }}" icon="arrow-right-start-on-rectangle">{{ __('common.logout') }}</flux:menu.item>
                 @endauth
             </flux:menu>
         </flux:dropdown>
