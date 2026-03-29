@@ -67,4 +67,5 @@ return [
     'edit_role_description' => 'شما می توانید نقش انتخابی را ویرایش کنید.',
     'user_deleted' => 'کاربر حذف شد.',
     'search_dots' => 'جستجو...',
+    'logs' => 'گزارشات',
 ];

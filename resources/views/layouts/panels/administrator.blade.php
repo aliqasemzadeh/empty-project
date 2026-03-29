@@ -22,6 +22,7 @@
             <flux:sidebar.item href="{{ route('panels.administrator.user-management.role.index') }}" wire:navigate>{{ __('common.roles') }}</flux:sidebar.item>
         </flux:sidebar.group>
         <flux:sidebar.item icon="settings" href="{{ route('panels.administrator.setting.index') }}" wire:navigate>{{ __('common.settings') }}</flux:sidebar.item>
+        <flux:sidebar.item icon="logs" href="{{ route('log-viewer.index') }}" wire:navigate>{{ __('common.logs') }}</flux:sidebar.item>
     </flux:sidebar.nav>
     <flux:sidebar.spacer />
     @include('partials.layouts.panels')
