@@ -21,6 +21,7 @@
             <flux:sidebar.item href="{{ route('panels.administrator.user-management.permission.index') }}" wire:navigate>{{ __('common.permissions') }}</flux:sidebar.item>
             <flux:sidebar.item href="{{ route('panels.administrator.user-management.role.index') }}" wire:navigate>{{ __('common.roles') }}</flux:sidebar.item>
         </flux:sidebar.group>
+        <flux:sidebar.item icon="settings" href="{{ route('panels.administrator.setting.index') }}" wire:navigate>{{ __('common.settings') }}</flux:sidebar.item>
     </flux:sidebar.nav>
     <flux:sidebar.spacer />
     @include('partials.layouts.panels')
