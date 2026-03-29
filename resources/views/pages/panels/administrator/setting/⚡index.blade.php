@@ -14,6 +14,6 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 </x-slot>
 
 
-<div>
+<flux:main>
     {{-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama --}}
-</div>
+</flux:main>
