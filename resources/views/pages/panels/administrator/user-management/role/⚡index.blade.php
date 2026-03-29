@@ -35,7 +35,7 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 
 
 <x-slot name="title">
-    {{ __('common.roles') }}
+    {{ __('common.roles') }} - {{ __('common.administrator_panel') }} - {{ config('common.name') }}
 </x-slot>
 
 <flux:main>

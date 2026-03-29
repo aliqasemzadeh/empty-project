@@ -10,7 +10,7 @@ new #[Layout('layouts.panels.user')] class extends Component
 ?>
 
 <x-slot name="title">
-    {{ __('common.dashboard') }}
+    {{ __('common.dashboard') }} - {{ __('common.user_panel') }} - {{ config('common.name') }}
 </x-slot>
 
 

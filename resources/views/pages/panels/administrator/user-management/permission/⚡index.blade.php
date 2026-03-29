@@ -52,7 +52,7 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 ?>
 
 <x-slot name="title">
-    {{ __('common.permissions') }}
+    {{ __('common.permissions') }} - {{ __('common.administrator_panel') }} - {{ config('common.name') }}
 </x-slot>
 
 

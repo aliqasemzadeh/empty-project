@@ -60,7 +60,7 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 };
 ?>
 <x-slot name="title">
-    {{ __('common.users') }}
+    {{ __('common.users') }} - {{ __('common.administrator_panel') }} - {{ config('common.name') }}
 </x-slot>
 <flux:main>
     <div class="relative mb-6 w-full">
