@@ -5,21 +5,20 @@ use Livewire\Attributes\Layout;
 
 new #[Layout('layouts.panels.administrator')] class extends Component
 {
-    public string $app_name = "";
+    public string $site_name = "";
 
     public function mount(App\Settings\GeneralSettings $generalSettings)
     {
-        $this->app_name = $generalSettings->app_name;
+        $this->site_name = $generalSettings->site_name;
     }
 
     public function save(App\Settings\GeneralSettings $generalSettings)
     {
-        $generalSettings->app_name = "PCShiraz";
-        $generalSettings->app_short_name = "PC";
-        $generalSettings->app_domain = "PCShiraz.ir";
-        $generalSettings->app_description = "PCShiraz";
+        $generalSettings->site_name = $this->site_name;
+        $generalSettings->site_url = "https://PCShiraz.ir";
+        $generalSettings->site_description = "PCShiraz";
         $generalSettings->save();
-        $this->app_name = $generalSettings->app_name;
+        $this->site_name = $generalSettings->site_name;
     }
 };
 ?>
