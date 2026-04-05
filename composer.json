@@ -19,6 +19,7 @@
         "maatwebsite/excel": "^3.1",
         "morilog/jalali": "^3.5",
         "opcodesio/log-viewer": "^3.24",
+        "spatie/laravel-activitylog": "^5.0",
         "spatie/laravel-medialibrary": "^11.21",
         "spatie/laravel-permission": "^7.2",
         "spatie/laravel-searchable": "^1.13",
