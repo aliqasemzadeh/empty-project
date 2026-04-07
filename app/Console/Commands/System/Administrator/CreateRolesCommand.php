@@ -38,5 +38,7 @@ class CreateRolesCommand extends Command
         foreach (__('roles') as $role => $roleTitle) {
             Role::create(['name' => $role]);
         }
+
+        $this->info('Roles Created Successfully');
     }
 }

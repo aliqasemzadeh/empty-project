@@ -40,6 +40,8 @@ class CreatePermissionsCommand extends Command
             foreach ($permissions as $permission => $translate) {
                 $user->givePermissionTo($permission);
             }
+
         }
+        $this->info('Permissions Created Successfully');
     }
 }
