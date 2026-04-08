@@ -16,28 +16,8 @@ new #[Layout('layouts.panels.administrator')] class extends Component
     protected $queryString = [
         'search' => ['except' => ''],
         'group' => ['except' => 'general'],
-        'page' => ['except' => 1],
     ];
 
-    public function sort($column)
-    {
-        if ($this->sortBy === $column) {
-            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
-        } else {
-            $this->sortBy = $column;
-            $this->sortDirection = 'asc';
-        }
-    }
-
-    public function updatingSearch(): void
-    {
-        $this->resetPage();
-    }
-
-    public function updatingGroup(): void
-    {
-        $this->resetPage();
-    }
 
     #[\Livewire\Attributes\Computed]
     public function settings()
