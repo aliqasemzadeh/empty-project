@@ -21,6 +21,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::livewire('/panels/administrator/user-management/permission/index', 'pages::panels.administrator.user-management.permission.index')->name('panels.administrator.user-management.permission.index');
 
     Route::livewire('/panels/administrator/system-management/setting/index', 'pages::panels.administrator.system-management.setting.index')->name('panels.administrator.system-management.setting.index');
+    Route::livewire('/panels/administrator/system-management/function/index', 'pages::panels.administrator.system-management.function.index')->name('panels.administrator.system-management.function.index');
 
     Route::livewire('/logout', 'pages::auth.logout')->name('logout');
 });

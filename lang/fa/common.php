@@ -68,5 +68,6 @@ return [
     'user_deleted' => 'کاربر حذف شد.',
     'search_dots' => 'جستجو...',
     'logs' => 'گزارشات',
+    'functions' => 'توابع',
     'system_management' => 'مدیریت سیستم',
 ];

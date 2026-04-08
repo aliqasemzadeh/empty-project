@@ -23,6 +23,7 @@
         </flux:sidebar.group>
         <flux:sidebar.group expandable heading="{{ __('common.system_management') }}" class="grid" :expanded="request()->routeIs('panels.administrator.system-management.*')">
             <flux:sidebar.item icon="settings" href="{{ route('panels.administrator.system-management.setting.index') }}" wire:navigate>{{ __('common.settings') }}</flux:sidebar.item>
+            <flux:sidebar.item icon="square-function" href="{{ route('panels.administrator.system-management.function.index') }}" wire:navigate>{{ __('common.functions') }}</flux:sidebar.item>
             <flux:sidebar.item icon="logs" href="{{ route('log-viewer.index') }}">{{ __('common.logs') }}</flux:sidebar.item>
         </flux:sidebar.group>
 
