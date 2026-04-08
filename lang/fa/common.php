@@ -70,4 +70,5 @@ return [
     'logs' => 'گزارشات',
     'functions' => 'توابع',
     'system_management' => 'مدیریت سیستم',
+    'settings_description' => 'شما می توانید تنظیمات سیستم و سایت را تغییر دهید.',
 ];
