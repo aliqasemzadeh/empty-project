@@ -7,17 +7,43 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 {
     use \Livewire\WithPagination;
 
+    public $sortBy = 'created_at';
+    public $sortDirection = 'desc';
+
     public string $search =  '';
+    public string $group = 'general';
 
     protected $queryString = [
         'search' => ['except' => ''],
+        'group' => ['except' => 'general'],
         'page' => ['except' => 1],
     ];
+
+    public function sort($column)
+    {
+        if ($this->sortBy === $column) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortBy = $column;
+            $this->sortDirection = 'asc';
+        }
+    }
+
+    public function updatingSearch(): void
+    {
+        $this->resetPage();
+    }
+
+    public function updatingGroup(): void
+    {
+        $this->resetPage();
+    }
 
     #[\Livewire\Attributes\Computed]
     public function settings()
     {
         return \App\Models\System\Setting::query()
+            ->when($this->group, fn($query) => $query->where('group', $this->group))
             ->when($this->search, function ($query) {
                 $search = '%'.$this->search.'%';
                 $query->where(function ($q) use ($search) {
@@ -28,9 +54,12 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                         ->orWhere('meta', 'like', $search)
                         ->orWhere('default', 'like', $search);
                 });
-            })
-            ->tap(fn ($query) => $this->sortBy ? $query->orderBy($this->sortBy, $this->sortDirection) : $query)
-            ->paginate(config('common.per_page'));
+            })->get();
+    }
+
+    public function saveSetting()
+    {
+
     }
 };
 ?>
@@ -56,4 +85,51 @@ new #[Layout('layouts.panels.administrator')] class extends Component
 
         <flux:separator variant="subtle" />
     </div>
+
+    <div>
+        <flux:input.group>
+            <flux:select class="max-w-fit" wire:model.live="group">
+                @foreach(__('settings') as $group_key => $group)
+                    <flux:select.option value="{{ $group_key }}">{{ $group['title'] }}</flux:select.option>
+                @endforeach
+            </flux:select>
+            <flux:input placeholder="{{ __('common.search_placeholder') }}" wire:model.live="search" />
+        </flux:input.group>
+    </div>
+
+    @foreach ($this->settings as $setting)
+    <flux:card class="mt-6" :key="$setting->id">
+        <flux:heading size="lg">{{ $setting->translate ?: $setting->name }}</flux:heading>
+        <form wire:submit.prevent="saveSetting({{ $setting->id }})">
+            @if($setting->type === 'string')
+                <flux:field>
+                    <flux:label>Username</flux:label>
+                    <flux:description>This will be publicly displayed.</flux:description>
+                    <flux:input />
+                    <flux:error name="username" />
+                </flux:field>
+            @endif
+            @if($setting->type === 'text')
+                    <flux:field>
+                        <flux:label>Username</flux:label>
+                        <flux:description>This will be publicly displayed.</flux:description>
+                        <flux:textarea />
+                        <flux:error name="username" />
+                    </flux:field>
+            @endif
+            @if($setting->type === 'boolean')
+                <flux:field variant="inline">
+                    <flux:label>Enable notifications</flux:label>
+                    <flux:switch wire:model.live="notifications" />
+                    <flux:error name="notifications" />
+                </flux:field>
+            @endif
+            <div class="flex gap-4">
+                <flux:spacer />
+                <flux:button type="submit">{{ __('common.save') }}</flux:button>
+            </div>
+        </form>
+    </flux:card>
+    @endforeach
+
 </flux:main>
