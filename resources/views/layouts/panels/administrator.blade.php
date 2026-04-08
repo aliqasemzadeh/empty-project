@@ -17,9 +17,9 @@
     <flux:sidebar.nav>
         <flux:sidebar.item icon="layout-dashboard" href="{{ route('panels.administrator.dashboard.index') }}" wire:navigate>{{ __('common.dashboard') }}</flux:sidebar.item>
         <flux:sidebar.group expandable heading="{{ __('common.user_management') }}" class="grid" :expanded="request()->routeIs('panels.administrator.user-management.*')">
-            <flux:sidebar.item href="{{ route('panels.administrator.user-management.user.index') }}" wire:navigate>{{ __('common.users') }}</flux:sidebar.item>
-            <flux:sidebar.item href="{{ route('panels.administrator.user-management.permission.index') }}" wire:navigate>{{ __('common.permissions') }}</flux:sidebar.item>
-            <flux:sidebar.item href="{{ route('panels.administrator.user-management.role.index') }}" wire:navigate>{{ __('common.roles') }}</flux:sidebar.item>
+            <flux:sidebar.item icon="users" href="{{ route('panels.administrator.user-management.user.index') }}" wire:navigate>{{ __('common.users') }}</flux:sidebar.item>
+            <flux:sidebar.item icon="hand-coins" href="{{ route('panels.administrator.user-management.permission.index') }}" wire:navigate>{{ __('common.permissions') }}</flux:sidebar.item>
+            <flux:sidebar.item icon="user-key" href="{{ route('panels.administrator.user-management.role.index') }}" wire:navigate>{{ __('common.roles') }}</flux:sidebar.item>
         </flux:sidebar.group>
         <flux:sidebar.group expandable heading="{{ __('common.system_management') }}" class="grid" :expanded="request()->routeIs('panels.administrator.system-management.*')">
             <flux:sidebar.item icon="settings" href="{{ route('panels.administrator.system-management.setting.index') }}" wire:navigate>{{ __('common.settings') }}</flux:sidebar.item>
