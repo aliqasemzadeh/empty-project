@@ -98,38 +98,7 @@ new #[Layout('layouts.panels.administrator')] class extends Component
     </div>
 
     @foreach ($this->settings as $setting)
-    <flux:card class="mt-6" :key="$setting->id">
-        <flux:heading size="lg">{{ $setting->translate ?: $setting->name }}</flux:heading>
-        <form wire:submit.prevent="saveSetting({{ $setting->id }})">
-            @if($setting->type === 'string')
-                <flux:field>
-                    <flux:label>Username</flux:label>
-                    <flux:description>This will be publicly displayed.</flux:description>
-                    <flux:input />
-                    <flux:error name="username" />
-                </flux:field>
-            @endif
-            @if($setting->type === 'text')
-                    <flux:field>
-                        <flux:label>Username</flux:label>
-                        <flux:description>This will be publicly displayed.</flux:description>
-                        <flux:textarea />
-                        <flux:error name="username" />
-                    </flux:field>
-            @endif
-            @if($setting->type === 'boolean')
-                <flux:field variant="inline">
-                    <flux:label>Enable notifications</flux:label>
-                    <flux:switch wire:model.live="notifications" />
-                    <flux:error name="notifications" />
-                </flux:field>
-            @endif
-            <div class="flex gap-4">
-                <flux:spacer />
-                <flux:button type="submit">{{ __('common.save') }}</flux:button>
-            </div>
-        </form>
-    </flux:card>
+        <livewire:panels.administrator.system-management.setting.option :setting="$setting" />
     @endforeach
 
 </flux:main>

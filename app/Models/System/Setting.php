@@ -41,9 +41,9 @@ class Setting extends Model
         });
     }
 
-    public function set($name, $value)
+    public function set($value)
     {
-        $this->updateOrCreate(['name' => $name], ['value' => $value]);
-        Cache::forget('setting.' . $name);
+        $this->update(['value' => $value]);
+        Cache::forget('setting.' . $this->name);
     }
 }
