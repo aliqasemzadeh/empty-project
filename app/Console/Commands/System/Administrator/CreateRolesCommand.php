@@ -2,28 +2,18 @@
 
 namespace App\Console\Commands\System\Administrator;
 
+use Illuminate\Console\Attributes\Description;
+use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
+#[Signature('system:administrator:create-roles-command')]
+#[Description('Command description')]
 class CreateRolesCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'system:administrator:create-roles-command';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Command description';
-
     /**
      * Execute the console command.
      */
