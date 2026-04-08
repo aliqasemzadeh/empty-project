@@ -21,8 +21,11 @@
             <flux:sidebar.item href="{{ route('panels.administrator.user-management.permission.index') }}" wire:navigate>{{ __('common.permissions') }}</flux:sidebar.item>
             <flux:sidebar.item href="{{ route('panels.administrator.user-management.role.index') }}" wire:navigate>{{ __('common.roles') }}</flux:sidebar.item>
         </flux:sidebar.group>
-        <flux:sidebar.item icon="settings" href="{{ route('panels.administrator.setting.index') }}" wire:navigate>{{ __('common.settings') }}</flux:sidebar.item>
-        <flux:sidebar.item icon="logs" href="{{ route('log-viewer.index') }}">{{ __('common.logs') }}</flux:sidebar.item>
+        <flux:sidebar.group expandable heading="{{ __('common.system_management') }}" class="grid" :expanded="request()->routeIs('panels.administrator.system-management.*')">
+            <flux:sidebar.item icon="settings" href="{{ route('panels.administrator.system-management.setting.index') }}" wire:navigate>{{ __('common.settings') }}</flux:sidebar.item>
+            <flux:sidebar.item icon="logs" href="{{ route('log-viewer.index') }}">{{ __('common.logs') }}</flux:sidebar.item>
+        </flux:sidebar.group>
+
     </flux:sidebar.nav>
     <flux:sidebar.spacer />
     @include('partials.layouts.panels')

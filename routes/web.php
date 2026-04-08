@@ -20,7 +20,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::livewire('/panels/administrator/user-management/role/index', 'pages::panels.administrator.user-management.role.index')->name('panels.administrator.user-management.role.index');
     Route::livewire('/panels/administrator/user-management/permission/index', 'pages::panels.administrator.user-management.permission.index')->name('panels.administrator.user-management.permission.index');
 
-    Route::livewire('/panels/administrator/setting/index', 'pages::panels.administrator.setting.index')->name('panels.administrator.setting.index');
+    Route::livewire('/panels/administrator/system-management/setting/index', 'pages::panels.administrator.setting.index')->name('panels.administrator.system-management.setting.index');
 
     Route::livewire('/logout', 'pages::auth.logout')->name('logout');
 });
