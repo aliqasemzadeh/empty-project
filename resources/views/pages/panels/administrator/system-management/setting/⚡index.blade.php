@@ -13,12 +13,6 @@ new #[Layout('layouts.panels.administrator')] class extends Component
     public string $search =  '';
     public string $group = 'general';
 
-    protected $queryString = [
-        'search' => ['except' => ''],
-        'group' => ['except' => 'general'],
-    ];
-
-
     #[\Livewire\Attributes\Computed]
     public function settings()
     {
