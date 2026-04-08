@@ -5,13 +5,26 @@ use Livewire\Component;
 
 new #[Layout('layouts.panels.administrator')] class extends Component
 {
-    use \Livewire\WithPagination;
-
     public $sortBy = 'created_at';
     public $sortDirection = 'desc';
 
     public string $search =  '';
     public string $group = 'general';
+
+    protected $queryString = [
+        'search' => ['except' => ''],
+        'group' => ['except' => 'general'],
+    ];
+
+    public function sort($column)
+    {
+        if ($this->sortBy === $column) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortBy = $column;
+            $this->sortDirection = 'asc';
+        }
+    }
 
     #[\Livewire\Attributes\Computed]
     public function settings()
@@ -28,7 +41,9 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                         ->orWhere('meta', 'like', $search)
                         ->orWhere('default', 'like', $search);
                 });
-            })->get();
+            })
+            ->orderBy($this->sortBy, $this->sortDirection)
+            ->get();
     }
 
     public function saveSetting()
@@ -72,7 +87,6 @@ new #[Layout('layouts.panels.administrator')] class extends Component
     </div>
 
     @foreach ($this->settings as $setting)
-        <livewire:panels.administrator.system-management.setting.option :setting="$setting" />
+        <livewire:panels.administrator.system-management.setting.option :setting="$setting" :key="$setting->id" />
     @endforeach
-
 </flux:main>

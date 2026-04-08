@@ -21,34 +21,33 @@ new class extends Component
 ?>
 
 <flux:card class="mt-6" :key="$setting->id">
-    <flux:heading size="lg">{{ $setting->translate ?: $setting->name }}</flux:heading>
     <form wire:submit.prevent="save">
         @if($setting->type === 'string')
             <flux:field>
-                <flux:label>Username</flux:label>
+                <flux:label>{{ $setting->translate ?: $setting->name }}</flux:label>
                 <flux:description>This will be publicly displayed.</flux:description>
                 <flux:input wire:model="value" type="text" />
-                <flux:error name="username" />
+                <flux:error name="value" />
             </flux:field>
         @endif
         @if($setting->type === 'text')
             <flux:field>
-                <flux:label>Username</flux:label>
+                <flux:label>{{ $setting->translate ?: $setting->name }}</flux:label>
                 <flux:description>This will be publicly displayed.</flux:description>
                 <flux:textarea wire:model="value" />
-                <flux:error name="username" />
+                <flux:error name="value" />
             </flux:field>
         @endif
         @if($setting->type === 'boolean')
             <flux:field variant="inline">
-                <flux:label>Enable notifications</flux:label>
                 <flux:switch  wire:model="value" />
-                <flux:error name="notifications" />
+                <flux:label>{{ $setting->translate ?: $setting->name }}</flux:label>
+                <flux:error name="value" />
             </flux:field>
         @endif
-        <div class="flex gap-4">
+        <div class="flex gap-4 mt-2">
             <flux:spacer />
-            <flux:button type="submit">{{ __('common.save') }}</flux:button>
+            <flux:button type="submit" variant="primary">{{ __('common.save') }}</flux:button>
         </div>
     </form>
 </flux:card>
