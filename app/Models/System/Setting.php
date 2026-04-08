@@ -4,11 +4,11 @@ namespace App\Models\System;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 
+#[Fillable(['group', 'name', 'type', 'value', 'default', 'meta'])]
 class Setting extends Model
 {
-    public $fillable = ['name', 'value'];
-
     /**
      * Get the attributes that should be cast.
      *
@@ -18,6 +18,8 @@ class Setting extends Model
     {
         return [
             'value' => 'array',
+            'default' => 'array',
+            'meta' => 'array',
         ];
     }
 
@@ -35,7 +37,7 @@ class Setting extends Model
     public function get($name, $default = null)
     {
         return Cache::remember('setting.' . $name, config('common.cache_time') ?? 60, function () use ($name, $default) {
-            return $this->firstOrCreate(['name' => $name], ['value' => $default])?->value;
+            return $this->firstOrCreate(['name' => $name], ['value' => $default, 'default' => $default])?->value;
         });
     }
 
