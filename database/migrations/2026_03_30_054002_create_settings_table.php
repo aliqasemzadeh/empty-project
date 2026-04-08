@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
 
+            $table->string('group')->default('custom');
             $table->string('name')->index()->unique();
-            $table->json('value');
+            $table->string('type')->default('string');
+            $table->json('value')->nullable();
+            $table->json('default')->nullable();
+            $table->json('meta')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
