@@ -3299,16 +3299,16 @@
         },
         {
             "name": "laravel-lang/starter-kits",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/starter-kits.git",
-                "reference": "7ac2c62d499ce3ee9593f292aa2c7ec19a6fd974"
+                "reference": "4c54f1349e4354ed69cdf3a6c37d8bdf0c847790"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/starter-kits/zipball/7ac2c62d499ce3ee9593f292aa2c7ec19a6fd974",
-                "reference": "7ac2c62d499ce3ee9593f292aa2c7ec19a6fd974",
+                "url": "https://api.github.com/repos/Laravel-Lang/starter-kits/zipball/4c54f1349e4354ed69cdf3a6c37d8bdf0c847790",
+                "reference": "4c54f1349e4354ed69cdf3a6c37d8bdf0c847790",
                 "shasum": ""
             },
             "require": {
@@ -3360,7 +3360,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/starter-kits/issues",
-                "source": "https://github.com/Laravel-Lang/starter-kits/tree/1.11.0"
+                "source": "https://github.com/Laravel-Lang/starter-kits/tree/1.12.0"
             },
             "funding": [
                 {
@@ -3372,7 +3372,7 @@
                     "type": "yoomoney"
                 }
             ],
-            "time": "2026-04-05T13:56:06+00:00"
+            "time": "2026-04-08T09:37:11+00:00"
         },
         {
             "name": "laravel/framework",
