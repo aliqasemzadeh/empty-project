@@ -34,8 +34,7 @@ new #[Layout('layouts.panels.administrator')] class extends Component
             ->when($this->search, function ($query) {
                 $search = '%'.$this->search.'%';
                 $query->where(function ($q) use ($search) {
-                    $q->where('translate', 'like', $search)
-                        ->orWhere('name', 'like', $search)
+                    $q->where('name', 'like', $search)
                         ->orWhere('group', 'like', $search)
                         ->orWhere('value', 'like', $search)
                         ->orWhere('meta', 'like', $search)
@@ -65,26 +64,23 @@ new #[Layout('layouts.panels.administrator')] class extends Component
                 <flux:heading size="xl" level="1">{{ __('common.settings') }}</flux:heading>
                 <flux:subheading size="lg" class="mb-6">{{ __('common.settings_description') }}</flux:subheading>
             </div>
-            @can('administrator_system_management_setting_create')
-                <flux:modal.trigger name="panels.administrator.user-management.user.create.modal">
-                    <flux:button variant="primary">{{ __('common.create_user') }}</flux:button>
-                </flux:modal.trigger>
-            @endcan
         </div>
 
         <flux:separator variant="subtle" />
     </div>
 
     <div>
-        <flux:input.group>
-            <flux:select class="max-w-fit" wire:model.live="group">
-                @foreach(__('settings') as $group_key => $group)
-                    <flux:select.option value="{{ $group_key }}">{{ $group['title'] }}</flux:select.option>
-                @endforeach
-            </flux:select>
-            <flux:input placeholder="{{ __('common.search_placeholder') }}" wire:model.live="search" />
-        </flux:input.group>
+        @foreach(__('settings') as $group_key => $group)
+            <flux:callout class="mt-2" inline>
+                <flux:callout.heading>{{ $group['title'] }}</flux:callout.heading>
+                <flux:callout.text>{{ $group['description'] }}</flux:callout.text>
+                <x-slot name="actions" class="@md:h-full m-0!">
+                    <flux:button href="{{ route('home') }}" wire:navigate>{{ __('common.change') }}</flux:button>
+                </x-slot>
+            </flux:callout>
+        @endforeach
     </div>
+
 
     @foreach ($this->settings as $setting)
         <livewire:panels.administrator.system-management.setting.option :setting="$setting" :key="$setting->id" />

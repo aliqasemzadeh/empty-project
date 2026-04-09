@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('group')->default('custom');
             $table->string('name')->index()->unique();
             $table->string('type')->default('string');
-            $table->string('translate')->nullable();
             $table->json('value')->nullable();
             $table->json('default')->nullable();
             $table->json('meta')->nullable();

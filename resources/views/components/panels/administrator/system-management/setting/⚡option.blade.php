@@ -33,7 +33,7 @@ new class extends Component
         @if($setting->type === 'text')
             <flux:field>
                 <flux:label>{{ $setting->translate ?: $setting->name }}</flux:label>
-                <flux:description>This will be publicly displayed.</flux:description>
+                <flux:description>4343</flux:description>
                 <flux:textarea wire:model="value" />
                 <flux:error name="value" />
             </flux:field>
@@ -42,6 +42,7 @@ new class extends Component
             <flux:field variant="inline">
                 <flux:switch  wire:model="value" />
                 <flux:label>{{ $setting->translate ?: $setting->name }}</flux:label>
+                <flux:description>43443</flux:description>
                 <flux:error name="value" />
             </flux:field>
         @endif
