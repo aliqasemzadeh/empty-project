@@ -7,6 +7,8 @@ use Livewire\Component;
 new #[Layout('layouts::auth')] class extends Component
 {
     public LoginForm $loginForm;
+    public $datej;
+    public $todo;
 
     public function login()
     {
@@ -15,6 +17,7 @@ new #[Layout('layouts::auth')] class extends Component
         // Redirect to intended page or dashboard
         return $this->redirectIntended(default: route('home'), navigate: true);
     }
+
 };
 ?>
 
