@@ -69,4 +69,11 @@ new #[Layout('layouts::auth')] class extends Component
     <flux:subheading class="text-center">
         {{ __('common.register_now') }} <flux:link href="{{ route('register') }}">{{ __('common.register_here') }}</flux:link>
     </flux:subheading>
+
+    <x-persian-date-picker
+        label="تاریخ تولد"
+        placeholder="انتخاب تاریخ"
+        wire:model="birth_date"
+        required
+    />
 </div>
